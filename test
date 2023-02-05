@@ -1,6 +1,7 @@
 const express = require('express'); 
 const app = express(); 
-app.get('*', (req,res) => { if (req.originalUrl.includes('?unlock')) { 
+app.get('*', (req,res) => { if (new URL(req.url).search.startsWith("?unlock"))
+{ 
 // Allow access to the requested page 
 res.send('Welcome!'); } else { 
 // Serve the education page
